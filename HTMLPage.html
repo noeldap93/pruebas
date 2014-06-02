@@ -7,16 +7,21 @@
     </head>
     <body>
         <input id="tiempo" placeholder="tiempo" type="text">
-        Esta es una prueba  <a onclick="setTimeout(function(){checkVibrate(1000)},parseInt(document.getElementById('tiempo').value));" style="cursor: pointer">basica</a>
+        Esta es una prueba  <a onclick="checkVibrate(1000,document.getElementById('tiempo'));" style="cursor: pointer">basica</a>
+        <br>
+        <button onclick="timing.clearTimeout();">stop</button>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <script type="text/javascript">
+            
             app.initialize();
+            var timing;
             function checkVibrate(timeV) {
                 //alert('vivrate1');
                 navigator.notification.vibrate(timeV);
+                timing=setTimeout(function () { checkVibrate(1000) }, parseInt(document.getElementById('tiempo').value));
             }
-            
+
         </script>
     </body>
 
