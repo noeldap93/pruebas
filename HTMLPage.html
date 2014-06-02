@@ -16,10 +16,10 @@
             
             app.initialize();
             var timing;
-            function checkVibrate(timeV) {
+            function checkVibrate(timeV,timeT) {
                 //alert('vivrate1');
-                navigator.notification.vibrate(timeV);
-                timing=setTimeout(function () { checkVibrate(1000) }, parseInt(document.getElementById('tiempo').value));
+                
+                timing=setTimeout(function () {navigator.notification.vibrate(timeV); checkVibrate(timeV,timeT); }, timeT);
             }
 
         </script>
