@@ -6,8 +6,8 @@
         <title></title>
     </head>
     <body>
-        <input id="tiempo" placeholder="tiempo" type="text">
-        Esta es una prueba  <a onclick="checkVibrate(1000,document.getElementById('tiempo'));" style="cursor: pointer">basica</a>
+        <input id="tiempo" placeholder="tiempo" type="text" size="10">
+        Esta es una prueba  <a onclick="checkVibrate(1000,document.getElementById('tiempo').value*10);" style="cursor: pointer">basica</a>
         <br>
         <br>
         <button onclick="timing.clearTimeout();">stop</button>
