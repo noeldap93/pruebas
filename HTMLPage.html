@@ -6,6 +6,18 @@
         <title></title>
     </head>
     <body>
-        Esta es una prueba basica
+        <input id="tiempo" placeholder="tiempo" type="text">
+        Esta es una prueba  <a onclick="setTimeout(function(){checkVibrate(1000)},parseInt(document.getElementById('tiempo').value));" style="cursor: pointer">basica</a>
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+            function checkVibrate(timeV) {
+                //alert('vivrate1');
+                navigator.notification.vibrate(timeV);
+            }
+            
+        </script>
     </body>
+
 </html>
