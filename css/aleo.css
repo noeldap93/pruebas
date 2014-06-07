@@ -1,0 +1,8 @@
+@font-face {
+font-family: 'Aleo';
+src: url("../fonts/Aleo-Regular.otf") format("opentype");
+}
+@font-face {
+font-family: 'Aleo-LightItalic';
+src: url("../fonts/Aleo-LightItalic.otf") format("opentype");
+}
