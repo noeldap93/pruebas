@@ -35,6 +35,7 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
         window.plugin.backgroundMode.enable();
+        window.plugin.notification.local.add({ message: 'Great app!' });
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
