@@ -58,7 +58,7 @@
 
 
         function runAnimation() {
-            
+
 
             if (outIn == 'out') {
 
@@ -92,15 +92,16 @@
                   $("#ed").html("<i>" + utf8_decode(data.contents.split('<i>')[1].split('</i>')[0]) + "</i>");
                   //$("#inicio").html($('#inicio i').html());
               });
-        
+
 
     });
     function showing(str) {
+        if (str === 'live') $('#live').html('<h2>LIVE MCU</h2><iframe width="360" height="235" src="http://www.ustream.tv/embed/17711993?v=3&amp;wmode=direct" scrolling="no" frameborder="0" style="border: 0px none transparent;">    </iframe>');
         $('#inicio').fadeOut();
         $('#avisos').fadeOut();
         $('#calendario').fadeOut();
         //$('#').fadeOut();
-        $('#chat').fadeOut(function () {
+        $('#live').fadeOut(function () {
             $('#' + str).fadeIn();
             //runAnimation();
         });
@@ -141,15 +142,14 @@
 			</div>
             <div id="avisos" style="padding: 20px; font-size: 1.8em;">
 				<a onclick="window.plugin.notification.local.add({ message: 'Great app!' });">Avisos</a>
-                Try it out on Mobile! (Demo 2)
+                Try it out on Mobile! (Demo 2) <br>
+                <a onclick="LocalNotification.add({ message: 'Great app!' });">Avisos</a>
 			</div>
             <div id="calendario" style="padding: 20px; font-size: 1.8em;">
 				Calendario
                 Try it out on Mobile! (Demo 2)
 			</div>
-            <div id="chat" style="padding: 20px; font-size: 1.8em;">
-				Chat
-                Try it out on Mobile! (Demo 2)
+            <div id="live" style="padding: 20px; font-size: 1.8em;">
 			</div>
 
 
@@ -170,6 +170,7 @@
 		<li onclick="showing('chat');">Chat</li>
         <li onclick="//showing('avisos');">Oracion Diaria</li>
 		<li onclick="//showing('avisos');">Conoce MCU</li>
+        <li onclick="showing('live');">MCU en Vivo</li>
 	</ul>
 </div>
 
