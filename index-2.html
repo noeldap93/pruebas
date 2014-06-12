@@ -86,17 +86,24 @@
             $('#main-container').toggleClass('on');
         });
         showing('inicio');
+        if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/)) {
+  $.get('http://mobile.evangelizo.org',function (){
+    $("#ed").html("<i class='l'>" + data.contents.split('<div class="versetsContainer">')[1].split('</div>')[0] + "</i>");
+  })
+} else {
+
         $.getJSON('http://whateverorigin.org/get?url=' +
               encodeURIComponent('http://www.es.catholic.net/evangeliodehoy/') + '&callback=?' + encodeURIComponent(''),
               function (data) {
-                  $("#ed").html("<i>" + utf8_decode(data.contents.split('<i>')[1].split('</i>')[0]) + "</i>");
+                  $("#ed").html("<i class='l'>" + utf8_decode(data.contents.split('<i>')[1].split('</i>')[0]) + "</i>");
                   //$("#inicio").html($('#inicio i').html());
               });
-
+}
 
     });
     function showing(str) {
-        if (str === 'live') $('#live').html('<h2>LIVE MCU</h2><iframe width="360" height="235" src="http://www.ustream.tv/embed/17711993?v=3&amp;wmode=direct" scrolling="no" frameborder="0" style="border: 0px none transparent;">    </iframe>');
+        if (str === 'live') $('#live').html('<h2>LIVE MCU</h2><iframe  src="http://www.ustream.tv/embed/17711993?v=3&amp;wmode=direct" scrolling="no" frameborder="0" style="border: 0px none transparent; display:block;position:relative;width:80%;height:80%">    </iframe>');
+        else $('#live').html('');
         $('#inicio').fadeOut();
         $('#avisos').fadeOut();
         $('#calendario').fadeOut();
@@ -141,23 +148,24 @@
                 obtenido de <a href="http://www.es.catholic.net/evangeliodehoy/">Catholic.net</a>
 			</div>
             <div id="avisos" style="padding: 20px; font-size: 1.8em;">
-				<a onclick="window.plugin.notification.local.add({ message: 'Great app!' });">Avisos</a>
-                Try it out on Mobile! (Demo 2) <br>
+				<a onclick="window.plugin.notification.local.add({ message: 'Great app!' });">Avisos</a><br>
+                Desarrollo aplazado (Local Notification no funciona) <br>
                 <a onclick="LocalNotification.add({ message: 'Great app!' });">Avisos</a>
 			</div>
             <div id="calendario" style="padding: 20px; font-size: 1.8em;">
-				Calendario
-                Try it out on Mobile! (Demo 2)
+				<h1>Calendario</h1>
+                <iframe src="https://www.google.com/calendar/embed?height=800&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=angel1185jose%40gmail.com&amp;color=%232952A3&amp;ctz=America%2FNew_York" style=" border:solid 1px #777 " width="80%" height="180%" frameborder="0" scrolling="no"></iframe>
+                
 			</div>
             <div id="live" style="padding: 20px; font-size: 1.8em;">
 			</div>
 
 
-			<div class="demo-bar">
+			<!-- <div class="demo-bar">
 				<a href="http://inserthtml.com/demo/mobile/menu/index-1.html">Demo 1</a>
 				<a href="http://inserthtml.com/demo/mobile/menu/index-2.html">Demo 2</a>
 				<a href="http://inserthtml.com/demo/mobile/menu/index-3.html">Demo 3</a>
-			</div>
+			</div> -->
 		</div>
 	</div>	
 </div>

@@ -61,7 +61,7 @@
     <gap:plugin name="org.apache.cordova.network-information" />
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
-    <gap:plugin name="de.appplant.cordova.plugin.local-notification" version="0.6.2" />
+    <gap:plugin name="de.appplant.cordova.plugin.local-notification" />
     <gap:plugin name="de.appplant.cordova.plugin.background-mode" />
 
     <!-- Third party plugins -->

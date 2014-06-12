@@ -6,3 +6,37 @@ src: url("../fonts/Aleo-Regular.otf") format("opentype");
 font-family: 'Aleo-LightItalic';
 src: url("../fonts/Aleo-LightItalic.otf") format("opentype");
 }
+@font-face {
+font-family: 'Aleo-Light';
+src: url("../fonts/Aleo-Light.otf") format("opentype");
+}
+@font-face {
+	font-family:'Aleo-Bold';
+	src:url("../fonts/Aleo-Bold.otf") format("opentype");
+}
+@font-face {
+	font-family:'Aleo-BoldItalic';
+	src:url("../fonts/Aleo-BoldItalic.otf") format("opentype");
+}
+@font-face {
+font-family: 'Aleo-Italic';
+src: url("../fonts/Aleo-Italic.otf") format("opentype");
+}
+.l{
+	font-weight: normal;
+	font-family: 'Aleo-Light';
+}
+h1,h2,h3,h4,h5,h6,b{
+	font-weight: normal;
+	font-family: 'Aleo-Bold';
+}
+i{
+	font-weight: normal;
+	font-family: 'Aleo-Italic';
+}
+i.l{
+	font-family: 'Aleo-LightItalic';
+}
+b i, i b{
+	font-family:'Aleo-BoldItalic';
+}
