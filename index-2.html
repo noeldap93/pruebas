@@ -87,7 +87,7 @@
         });
         showing('inicio');
         if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/)) {
-  $.get('http://mobile.evangelizo.org',function (){
+  $.get('http://mobile.evangelizo.org',function (data){
     $("#ed").html("<i class='l'>" + data.split('<div class="versetsContainer">')[1].split('</div>')[0] + "</i>");
   });
 } else {
