@@ -88,8 +88,8 @@
         showing('inicio');
         if (navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/)) {
   $.get('http://mobile.evangelizo.org',function (){
-    $("#ed").html("<i class='l'>" + data.contents.split('<div class="versetsContainer">')[1].split('</div>')[0] + "</i>");
-  })
+    $("#ed").html("<i class='l'>" + data.split('<div class="versetsContainer">')[1].split('</div>')[0] + "</i>");
+  });
 } else {
 
         $.getJSON('http://whateverorigin.org/get?url=' +
@@ -145,7 +145,7 @@
                 </ul>
                 <h2>Evangelio del día.</h2><hr>
                 <div id="ed"></div>
-                obtenido de <a href="http://www.es.catholic.net/evangeliodehoy/">Catholic.net</a>
+                obtenido de <a href="http://mobile.evangelizo.org/">Evangelizo.org</a>
 			</div>
             <div id="avisos" style="padding: 20px; font-size: 1.8em;">
 				<a onclick="window.plugin.notification.local.add({ message: 'Great app!' });">Avisos</a><br>
