@@ -102,12 +102,21 @@
 
     });
     function showing(str) {
-        if (str === 'live') $('#live').html('<h2>LIVE MCU</h2><iframe  src="http://www.ustream.tv/embed/17711993?v=3&amp;wmode=direct" scrolling="no" frameborder="0" style="border: 0px none transparent; display:block;position:relative;width:80%;height:80%">    </iframe>');
+        if (str === 'live'){ 
+            var width_live=$(document).width()*7/8;
+            var height_live=width_live*3/4;
+            if(height_live>$(document).height()){
+               height_live= $(document).height();
+               width_live=height_live*4/3;
+            }
+
+            $('#live').html('<h2>LIVE MCU</h2><iframe  src="http://www.ustream.tv/embed/17711993?v=3&amp;wmode=direct" scrolling="no" frameborder="0" style="border: 0px none transparent; display:block;position:relative;width:'+width_live.toFixed(0)+'px;height:'+height_live.toFixed(0)+'px">    </iframe>');
+    }
         else $('#live').html('');
         $('#inicio').fadeOut();
         $('#avisos').fadeOut();
         $('#calendario').fadeOut();
-        //$('#').fadeOut();
+        $('#intercesion').fadeOut();
         $('#live').fadeOut(function () {
             $('#' + str).fadeIn();
             //runAnimation();
@@ -136,7 +145,7 @@
 		</div>
 		<div id="content">
 			<!-- Other Content goes here .. -->
-			<div id="inicio" class="hCenter" style="padding: 30px; font-size: 1.8em;position: relative;">
+			<div id="inicio" class="hCenter" style="display:none;padding: 30px; font-size: 1.8em;position: relative;">
                 <h2>Intenciones de MCU</h2>
                 <ul>
                     <li>Charla de Hoy
@@ -147,17 +156,48 @@
                 <div id="ed"></div>
                 obtenido de <a href="http://mobile.evangelizo.org/">Evangelizo.org</a>
 			</div>
-            <div id="avisos" style="padding: 20px; font-size: 1.8em;">
+            <div id="avisos" style="display:none;padding: 20px; font-size: 1.8em;">
+                <div>
+                    <header><b>C</b>ambia <b>H</b>ora de <b>A</b>brazos</header>
+                    <hr>
+                    <section><b>H</b>ermanos, se recorre dos horas despues(12:00pm a 2:00pm) chequen el calendario, no se les olvide asistir</section>
+                    <footer>-Mickey Barrientos</footer>
+                </div>
+                <div>
+                    <header>Junta de Crecimiento II</header>
+                    <hr>
+                    <section>Nuevo Evento de Crecimiento II</section>
+                    <footer>-Marvin Magnatov</footer>
+                </div>
+                <div>
+                    <header>Horario Vacacional MCU</header>
+                    <hr>
+                    <section>El horario sera temporalmente de 7:00pm a 9:00</section>
+                    <footer>-Ana Tere</footer>
+                </div>
 				<a onclick="window.plugin.notification.local.add({ message: 'Great app!' });">Avisos</a><br>
                 Desarrollo aplazado (Local Notification no funciona) <br>
                 <a onclick="LocalNotification.add({ message: 'Great app!' });">Avisos</a>
 			</div>
-            <div id="calendario" style="padding: 20px; font-size: 1.8em;">
+            <div id="calendario" style="display:none;padding: 20px; font-size: 1.8em;">
 				<h1>Calendario</h1>
-                <iframe src="https://www.google.com/calendar/embed?height=800&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=angel1185jose%40gmail.com&amp;color=%232952A3&amp;ctz=America%2FNew_York" style=" border:solid 1px #777 " width="80%" height="180%" frameborder="0" scrolling="no"></iframe>
-                
+                <iframe src="https://www.google.com/calendar/embed?height=800&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=angel1185jose%40gmail.com&amp;color=%232952A3&amp;ctz=America%2FNew_York" style=" border:solid 1px #777 " width="800" height="600" frameborder="0" scrolling="no"></iframe>
 			</div>
-            <div id="live" style="padding: 20px; font-size: 1.8em;">
+            <section id="intercesion" style="display:none;padding: 20px; font-size: 1.8em;" class='fill_height'>
+                <section id="agregarInter">
+                    <input type="text" placeholder='Agrega tu necesidad personal'><button>Agregar</button>
+                </section>
+                <section class='fill_height'>
+                    <span>Salud de Maria Del Angel</span>
+                    <span>Economia de Ligia Irene Polanco</span>
+                    <span>Liberacion de Mariana prima de Fernanda</span>
+                    <span>Salud de la abuelita de Roberto cervantes</span>
+                    <span>Salud de Miguel Barrientos y su Familia</span>
+                    <span>Fortaleza vs Tentacion(cigarro) de Norman Orta </span>
+                    <span>Familia de Samuel Barragan</span>
+                </section>
+            </section>
+            <div id="live" style="display:none;padding: 20px; font-size: 1.8em;">
 			</div>
 
 
@@ -176,7 +216,8 @@
 		<li onclick="showing('avisos');">Avisos</li>
 		<li onclick="showing('calendario');">Calendario</li>
 		<li onclick="showing('chat');">Chat</li>
-        <li onclick="//showing('avisos');">Oracion Diaria</li>
+        <li onclick="showing('intercesion');">Intercesión</li>
+        <li onclick="//showing('');">Oracion Diaria</li>
 		<li onclick="//showing('avisos');">Conoce MCU</li>
         <li onclick="showing('live');">MCU en Vivo</li>
 	</ul>
