@@ -10,24 +10,22 @@
   <title>Dark Login Form</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="../css/aleo.css" />
-  <script src="js/jquery.js"></script>
-  <script src="js/index.js"></script>
   <!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body>
-  <form id='dForm' method="post" action="index.html" class="login">
+  <form method="post" action="index.html" class="login">
     <p>
       <label for="login">Email:</label>
-      <input type="text" name="username" id="username" placeholder="name@example.com">
+      <input type="text" name="login" id="login" value="name@example.com">
     </p>
 
     <p>
       <label for="password">Password:</label>
-      <input type="password" name="password" id="password" value="">
+      <input type="password" name="password" id="password" value="4815162342">
     </p>
 
-    <p class="login-submit" onclick='login();return false;'>
-      <button type="submit"  class="login-button">Login</button>
+    <p class="login-submit">
+      <button type="submit" class="login-button">Login</button>
     </p>
 
     <p class="forgot-password"><a href="index.html">¿Olvidaste tu contraseña?</a></p>
